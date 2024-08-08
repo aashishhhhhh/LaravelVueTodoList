@@ -4,7 +4,7 @@
         <nav>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Users</a></li>
+          <li><router-link to="/profile">profile</router-link></li>
             <li><a href="#">Settings</a></li>
             <li><a href="#">Reports</a></li>
             <li><a href="#">Logout</a></li>
@@ -14,6 +14,7 @@
   </template>
 
   <script>
+
     export default {
       data() {
         return {

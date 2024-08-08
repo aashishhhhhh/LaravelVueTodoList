@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
 
 Route::post('/login', [UserController::class, 'login']);
+Route::middleware(['middleware' => 'checkAuth'])->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('welcome');
+});

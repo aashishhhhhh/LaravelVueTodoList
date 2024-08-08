@@ -17,7 +17,7 @@
   </template>
 
   <script>
-  import axios from 'axios';
+import axios from 'axios';
 import AdminDashboard from './AdminDashboard.vue';
 
   export default {
@@ -41,9 +41,11 @@ import AdminDashboard from './AdminDashboard.vue';
               password: this.password,
             })
             .then(response => {
+                console.log(response)
               if (response.data.status === true) {
                 this.$emit('login-success');  // Emit an event on successful login
               } else {
+                console.log(response)
                 this.errorMessage = 'Invalid username or password';
               }
             })

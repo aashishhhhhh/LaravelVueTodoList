@@ -404,12 +404,17 @@
     </style> --}}
 </head>
 
+@php
+    $userSession = $userSession;
+@endphp
+
 <body class="antialiased">
     <div id="app">
-
         <adminlogin @login-success="showSidebar" v-if="adminlogin"></adminlogin>
         <admindashboard v-if="admindashboard"> </admindashboard>
-        x
+        <script>
+            window.userSession = @json($userSession);
+        </script>
 </body>
 
 </html>

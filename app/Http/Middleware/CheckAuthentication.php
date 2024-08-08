@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CheckAuthentication
 {
@@ -16,6 +17,11 @@ class CheckAuthentication
      */
     public function handle(Request $request, Closure $next)
     {
+        if (session('userAuthentication')) {
+            return response()->view('welcome', [
+                'userSession' => session('userAuthentication')
+            ]);
+        }
         return $next($request);
     }
 }
